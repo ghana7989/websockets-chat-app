@@ -10,7 +10,10 @@
 
 <body>
   <h1>Hello</h1>
-  <button id="increment">Add +1</button>
+  <form>
+    <input id="message" type="text" aria-label="message" placeholder="Enter your message" />
+    <button id="submit">Send Message</button>
+  </form>
 </body>
 <script src="/socket.io/socket.io.js"></script>
 <script src="/js/chat.js"></script>

@@ -11,17 +11,15 @@ const publicDir = path.join(__dirname, '../public')
 
 app.use(express.static(publicDir))
 
-let count = 0
 io.on('connection', socket => {
 	console.log('New Socket Connection')
-	socket.emit('countUpdated', count)
-	socket.on('increment', () => {
-		count++
-		io.emit('countUpdated', count)
+	socket.emit('message', 'Welcome!!')
+
+	socket.on('sendMessage', message => {
+		io.emit('message', message)
 	})
 })
 
 server.listen(3000, 'localhost', () => {
 	console.log('server listening on port 3000')
 })
-
